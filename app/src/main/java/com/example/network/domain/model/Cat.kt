@@ -1,5 +1,8 @@
 package com.example.network.domain.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Cat(
     val id: String,
     val imageUrl: String,
@@ -8,6 +11,7 @@ data class Cat(
     val breed: Breed? = null
 )
 
+@Serializable
 data class Breed(
     val id: String,
     val name: String,

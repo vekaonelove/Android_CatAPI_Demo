@@ -1,12 +1,13 @@
 package com.example.network.data.network
 
 import com.example.network.data.model.CatImageModel
+import com.example.catapi.BuildConfig
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Query
 
 // NEVER DO IT IN PROD
-private const val API_KEY = "your_api_key_here"
+private const val API_KEY = BuildConfig.API_KEY
 
 interface CatApiService {
     @GET("v1/images/search")

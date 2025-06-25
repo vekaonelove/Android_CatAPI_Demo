@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.dagger.hilt)
     alias(libs.plugins.ksp)
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.8.20"
 }
 
 applyDependencyManagement()
@@ -22,6 +23,8 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        buildConfigField("String", "API_KEY", "\"live_TB2SyGSFWEy4Ldx21HIpqoUw0byTrv6l2eWheNtTYcgBI1eMDYoJMQpaUd603uww\"")
     }
 
     buildTypes {
@@ -63,23 +66,13 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    
-    // Compose Compiler
+
     implementation(libs.androidx.compose.compiler)
-
-    // Networking
     implementation(libs.retrofit)
-    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
-    implementation(libs.okhttp.logging)
-    implementation("com.google.code.gson:gson:2.10")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
 
-    // Image loading
-    implementation(libs.coil.compose)
-
-    // ViewModel
     implementation(libs.androidx.lifecycle.viewmodel.compose)
-
-    // Dependency Injection
     implementation(libs.dagger.hilt.android)
     ksp(libs.dagger.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)

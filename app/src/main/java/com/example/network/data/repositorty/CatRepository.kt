@@ -18,7 +18,7 @@ class CatRepository(
             }
         }
     }
-    
+
     suspend fun getCatsByBreed(breedId: String, limit: Int = 10): Result<List<CatImageModel>> {
         return withContext(Dispatchers.IO) {
             try {
